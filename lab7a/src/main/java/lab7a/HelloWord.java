@@ -3,6 +3,9 @@ package lab7a;
 public class HelloWord {
     public static void main(String[] args) {
 
+        if( args != null) {
+
+        }
     }
 
     private static void printHelloWorld(int[] numbers) {
