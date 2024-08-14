@@ -1,6 +1,8 @@
 package com.anhvu.exam.service;
 
 import com.anhvu.exam.dto.AccountRequest;
+import com.anhvu.exam.exception.AccountNotFoundException;
+import com.anhvu.exam.exception.CustomerNotFoundException;
 import com.anhvu.exam.model.Account;
 import com.anhvu.exam.model.ActiveStatus;
 import com.anhvu.exam.model.Customer;
@@ -27,9 +29,9 @@ public class AccountServiceImpl implements AccountService {
         return accountRepository.findAll();
     }
 
-    public Account getAccountById(Long id) {
+    public Account getAccountById(Long id) throws AccountNotFoundException {
         return accountRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Account not found"));
+                .orElseThrow(() -> new AccountNotFoundException(id));
     }
 
     public List<Account> getPlatinumAccounts() {
@@ -42,10 +44,10 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Transactional
-    public Account createAccountForCustomer(Integer customerId, AccountRequest accountRequest) {
+    public Account createAccountForCustomer(Integer customerId, AccountRequest accountRequest) throws CustomerNotFoundException {
         // Find the customer
         Customer customer = customerRepository.findById(customerId)
-                .orElseThrow(() -> new RuntimeException("Customer not found"));
+                .orElseThrow(() -> new CustomerNotFoundException(customerId));
 
         // Create the new account
         Account account = new Account();
@@ -64,9 +66,9 @@ public class AccountServiceImpl implements AccountService {
         return savedAccount;
     }
 
-    public Account updateAccount(Long id, AccountRequest accountDto) {
+    public Account updateAccount(Long id, AccountRequest accountDto) throws AccountNotFoundException {
         Account account = accountRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Account not found"));
+                .orElseThrow(() -> new AccountNotFoundException(id));
 
         account.setAccountNumber(accountDto.getAccountNumber());
         account.setDateOpened(accountDto.getDateOpened());
@@ -76,9 +78,9 @@ public class AccountServiceImpl implements AccountService {
         return accountRepository.save(account);
     }
 
-    public void deleteAccount(Long id) {
+    public void deleteAccount(Long id) throws AccountNotFoundException {
         Account account = accountRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Account not found"));
+                .orElseThrow(() -> new AccountNotFoundException(id));
 
         accountRepository.delete(account);
     }
