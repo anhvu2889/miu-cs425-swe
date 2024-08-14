@@ -47,7 +47,7 @@ public class AccountRestController {
     }
 
     @PutMapping("/{accountId}")
-    public ResponseEntity<Account> updateAccount(@PathVariable Long accountId, @RequestBody AccountRequest accountRequest) {
+    public ResponseEntity<Account> updateAccount(@PathVariable Long accountId, @RequestBody AccountRequest accountRequest) throws AccountNotFoundException {
         Account updatedAccount = accountService.updateAccount(accountId, accountRequest);
         return new ResponseEntity<>(updatedAccount, HttpStatus.OK);
     }

@@ -26,9 +26,9 @@ public class CustomerServiceImpl implements CustomerService {
         return customerRepository.save(customer);
     }
 
-    public Customer updateCustomer(Integer id, Customer customer) {
+    public Customer updateCustomer(Integer id, Customer customer) throws CustomerNotFoundException{
         Customer existingCustomer = customerRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Customer not found"));
+                .orElseThrow(() -> new CustomerNotFoundException(id));
 
         existingCustomer.setFirstName(customer.getFirstName());
         existingCustomer.setLastName(customer.getLastName());
@@ -37,9 +37,9 @@ public class CustomerServiceImpl implements CustomerService {
         return customerRepository.save(existingCustomer);
     }
 
-    public void deleteCustomer(Integer id) {
+    public void deleteCustomer(Integer id) throws CustomerNotFoundException{
         Customer customer = customerRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Customer not found"));
+                .orElseThrow(() -> new CustomerNotFoundException(id));
 
         customerRepository.delete(customer);
     }

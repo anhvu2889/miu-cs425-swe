@@ -35,13 +35,13 @@ public class CustomerRestController {
     }
 
     @PutMapping("/{customerId}")
-    public ResponseEntity<Customer> updateCustomer(@PathVariable Integer customerId, @RequestBody Customer customer) {
+    public ResponseEntity<Customer> updateCustomer(@PathVariable Integer customerId, @RequestBody Customer customer) throws CustomerNotFoundException {
         Customer updatedCustomer = customerService.updateCustomer(customerId, customer);
         return new ResponseEntity<>(updatedCustomer, HttpStatus.OK);
     }
 
     @DeleteMapping("/{customerId}")
-    public ResponseEntity<Void> deleteCustomer(@PathVariable Integer customerId) {
+    public ResponseEntity<Void> deleteCustomer(@PathVariable Integer customerId) throws CustomerNotFoundException {
         customerService.deleteCustomer(customerId);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }

@@ -21,7 +21,7 @@ public interface AccountService {
 
     List<Customer> getCustomersByAccountId(Long accountId);
 
-    Account updateAccount(Long id, AccountRequest accountRequest);
+    Account updateAccount(Long id, AccountRequest accountRequest) throws AccountNotFoundException;
 
     void deleteAccount(Long id) throws AccountNotFoundException;
 }
