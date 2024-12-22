@@ -1,32 +1,22 @@
-# Computer Professionals Program at MIU (SWE - Software Engineering)
+# MIU - SWE (Software Engineering) Course Assignments
+
+This repository contains assignments and coursework for the **SWE (Software Engineering)** course, part of the graduate Computer Science program at **Maharishi International University (MIU)**.
+
+---
 
 ## Course Overview
-The **SWE (Software Engineering)** course introduces students to best practices in software development through a structured software development methodology. Students build upon prior experience with Object-Oriented programming and UML diagrams to develop robust and maintainable software.
+The **SWE** course introduces students to best practices in software development through a structured software development methodology. Students build upon prior experience with Object-Oriented programming and UML diagrams to develop robust and maintainable software.
 
 ---
 
 ## Topics Covered
-The course covers the following topics:
+The course focuses on the following topics:
 
-1. **Software Development Methodologies**  
-   - Rational Unified Process (RUP)  
-   - Agile Practices  
-
-2. **Object-Oriented Analysis and Design**  
-   - Design Patterns  
-   - Modeling Relationships with UML  
-
-3. **Unified Modeling Language (UML)**  
-   - Class Diagrams  
-   - Sequence and Activity Diagrams  
-
-4. **Software Development Lifecycle**  
-   - Requirements Gathering and Analysis  
-   - Design, Implementation, Testing, and Deployment  
-
-5. **Project-Based Learning**  
-   - Practical Assignments  
-   - Team Projects Following RUP Standards  
+- Software Development Methodologies (Rational Unified Process and Agile Practices)
+- Object-Oriented Analysis and Design (Design Patterns and UML Modeling)
+- Unified Modeling Language (UML) (Class, Sequence, and Activity Diagrams)
+- Software Development Lifecycle (Requirements Gathering, Design, Implementation, Testing, and Deployment)
+- Project-Based Learning (Practical Assignments and Team Projects Following RUP Standards)
 
 ---
 
@@ -61,9 +51,3 @@ Contributions are welcome! Follow these steps to contribute:
 2. Create a new branch for your feature or bug fix.
 3. Commit your changes with a descriptive message.
 4. Submit a pull request for review.
-
----
-
-## Contact
-For questions or suggestions, please reach out to the course instructor or create an issue in the repository.
-
